@@ -16,3 +16,16 @@ zuul:
     user:                                               # 可以随便写，在zuul上面唯一即可；当这里的值 = service-id时，service-id可以不写。
       path: /user/**                                    # 想要映射到的路径
       service-id: microservice-provider-user            # Eureka中的serviceId
+auth-server: http://172.17.8.193/cas
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      client-id: OC4wNS4wNS4wNy4wMC4wMy4wMS4wMS4w
+      client-secret: MC4wNC4wOC4wMi4wMS4wNi4wNC4wMy4w
+      access-token-uri: ${auth-server}/oauth2.0/token
+      user-authorization-uri: ${auth-server}/oauth2.0/authorize
+      scope: read, write
+    resource:
+      token-info-uri: ${auth-server}/oauth2.0/profile
